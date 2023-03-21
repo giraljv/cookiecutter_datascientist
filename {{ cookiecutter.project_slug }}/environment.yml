@@ -5,16 +5,18 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  {% if cookiecutter.project_packages == "All" -%}
-  - fs
   - jupyter
   - jupyterlab
   - pathlib
   - pandas
   - numpy
+  {% if cookiecutter.project_packages == "All" -%}
+  - fs
   - seaborn
   - matplotlib
   - sklearn
+  - missingno
+  - upsetplot
   {% endif -%}
   - pip
   {% if cookiecutter.project_packages == "All" -%}
