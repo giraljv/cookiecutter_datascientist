@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 
-@pd.api.extensions.register_dataframe_accessor('missing')
+@pd.api.extensions.register_dataframe_accessor('ms_tools')
 class MissingMethods:
     
     def __init__(self,pandas_obj):
