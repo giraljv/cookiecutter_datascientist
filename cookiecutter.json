@@ -1,6 +1,6 @@
 {
-    "project_readme_title": "Cookiecutter Personal",
-    "project_slug": "cookiecutter_personal",
+    "project_readme_title": "new_project",
+    "project_slug": "basic",
     "project_description": "Testing something for now",
     "project_author_name": "your_name",
     "project_packages": ["All","Minimal"],
