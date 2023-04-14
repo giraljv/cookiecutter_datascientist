@@ -45,7 +45,7 @@ class MissingMethods:
     #total de valores faltantes
     def table_variable_joint(self) -> pd.DataFrame:
         return (
-            self._df.missing.table_variable_summary()
+            self._df.ms_tools.table_variable_summary()
             .value_counts("n_missing")
             .reset_index()
             .rename(columns={"n_missing": "n_missing_in_variable", 0: "n_variables"})
@@ -68,7 +68,7 @@ class MissingMethods:
     
     def table_case_joint(self) -> pd.DataFrame():
         return (
-            self._df.missing.table_case_summary()
+            self._df.ms_tools.table_case_summary()
             .value_counts("n_missing")
             .reset_index()
             .rename(columns={"n_missing": "n_missing_in_case", 0: "n_cases"})
@@ -133,7 +133,7 @@ class MissingMethods:
 
 
     def vis_variable_plot(self):
-        df = self._df.missing.table_variable_summary().sort_values("n_missing")
+        df = self._df.ms_tools.table_variable_summary().sort_values("n_missing")
 
         plot_range = range(1, len(df.index) + 1)
 
@@ -154,7 +154,7 @@ class MissingMethods:
     ):
 
         (
-            self._df.missing.table_variable_span(
+            self._df.ms_tools.table_variable_span(
                 variable=variable, span_every=span_every
             ).plot.bar(
                 x="span_counter",
@@ -194,7 +194,7 @@ class MissingMethods:
 
     def vis_case_plot(self):
 
-        df = self._df.missing.table_case_summary()
+        df = self._df.ms_tools.table_case_summary()
 
         sns.displot(data=df, x="n_missing", binwidth=1, color="black")
 
@@ -248,7 +248,7 @@ class MissingMethods:
         return pd.concat(
             objs=[
                 self._df,
-                self._df.missing.create_shadow_matrix(
+                self._df.ms_tools.create_shadow_matrix(
                     true_string=true_string,
                     false_string=false_string,
                     only_missing=only_missing
